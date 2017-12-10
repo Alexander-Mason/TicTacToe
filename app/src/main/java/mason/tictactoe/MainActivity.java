@@ -36,14 +36,60 @@ public class MainActivity extends AppCompatActivity {
         displayTurn = findViewById(R.id.displayTurn);
         displayTurn.setText("Turn: " + currentSymbol);
 
+        //Array to hold filled squares
+        final String board[] = new String[9];
+        for(int i = 0; i < 9; ++i){
+            board[i] = "";
+        }
+
         View.OnClickListener playListener = new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Button b = (Button) view;
-                //Perform the play
-                currentSymbol = setSymbol(currentSymbol, b);
-                //Update the displayTurn
-                displayTurn.setText("Turn: " + currentSymbol);
+                switch(view.getId()){
+                    case R.id.topLeft:
+                        board[0] = currentSymbol;
+                        break;
+                    case R.id.topMiddle:
+                        board[1] = currentSymbol;
+                        break;
+                    case R.id.topRight:
+                        board[2] = currentSymbol;
+                        break;
+                    case R.id.middleLeft:
+                        board[3] = currentSymbol;
+                        break;
+                    case R.id.middleMiddle:
+                        board[4] = currentSymbol;
+                        break;
+                    case R.id.middleRight:
+                        board[5] = currentSymbol;
+                        break;
+                    case R.id.bottomLeft:
+                        board[6] = currentSymbol;
+                        break;
+                    case R.id.bottomMiddle:
+                        board[7] = currentSymbol;
+                        break;
+                    case R.id.bottomRight:
+                        board[8] = currentSymbol;
+                        break;
+                    default:
+                        break;
+                }
+
+
+                //Check if the game is won
+                if(checkWin(board)){
+                    displayTurn.setText("Player " + currentSymbol + " wins!\nClick reset to start over.");
+                    //Perform the play
+                    currentSymbol = setSymbol(currentSymbol, b);
+                }else {
+                    //Perform the play
+                    currentSymbol = setSymbol(currentSymbol, b);
+                    //Update the displayTurn
+                    displayTurn.setText("Turn: " + currentSymbol);
+                }
             }
         };
 
@@ -83,5 +129,50 @@ public class MainActivity extends AppCompatActivity {
         }else{
             return symbol;
         }
+    }
+
+    //Check if the game is won
+    private boolean checkWin(String [] board){
+        //Top layer win state
+        if(!board[0].equals("") && board[0].equals(board[1]) && board[1].equals(board[2])){
+            return true;
+        }
+
+        //Middle layer win state
+        if(!board[3].equals("") && board[3].equals(board[4]) && board[4].equals(board[5])){
+            return true;
+        }
+
+        //Bottom layer win state
+        if(!board[6].equals("") && board[6].equals(board[7]) && board[7].equals(board[8])){
+            return true;
+        }
+
+        //Left vert layer win state
+        if(!board[0].equals("") && board[0].equals(board[3]) && board[3].equals(board[6])){
+            return true;
+        }
+
+        //Middle vert layer win state
+        if(!board[1].equals("") && board[1].equals(board[4]) && board[4].equals(board[7])){
+            return true;
+        }
+
+        //Right vert layer win state
+        if(!board[2].equals("") && board[2].equals(board[5]) && board[5].equals(board[8])){
+            return true;
+        }
+
+        //Bot to Top diag layer win state
+        if(!board[2].equals("") && board[2].equals(board[4]) && board[4].equals(board[6])){
+            return true;
+        }
+
+        //Top to Bot diag layer win state
+        if(!board[0].equals("") && board[0].equals(board[4]) && board[4].equals(board[8])){
+            return true;
+        }
+
+        return false;
     }
 }
