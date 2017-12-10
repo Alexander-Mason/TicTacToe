@@ -7,12 +7,152 @@
     tools:context="mason.tictactoe.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/displayTurn"
+        android:layout_width="260dp"
+        android:layout_height="83dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Turn: "
+        android:textColor="@android:color/black"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="160dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="reset"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/topLeft"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/space2"
+        app:layout_constraintTop_toBottomOf="@+id/space2" />
+
+    <Button
+        android:id="@+id/topMiddle"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/topLeft"
+        app:layout_constraintTop_toTopOf="@+id/topLeft" />
+
+    <Button
+        android:id="@+id/topRight"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/topMiddle"
+        app:layout_constraintTop_toTopOf="@+id/topMiddle" />
+
+    <Button
+        android:id="@+id/middleLeft"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/topLeft"
+        app:layout_constraintTop_toBottomOf="@+id/topLeft" />
+
+    <Button
+        android:id="@+id/middleMiddle"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/middleLeft"
+        app:layout_constraintTop_toTopOf="@+id/middleLeft" />
+
+    <Button
+        android:id="@+id/middleRight"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/middleMiddle"
+        app:layout_constraintTop_toTopOf="@+id/middleMiddle" />
+
+    <Button
+        android:id="@+id/bottomLeft"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/middleLeft"
+        app:layout_constraintTop_toBottomOf="@+id/middleLeft" />
+
+    <Button
+        android:id="@+id/bottomMiddle"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/bottomLeft"
+        app:layout_constraintTop_toTopOf="@+id/bottomLeft" />
+
+    <Button
+        android:id="@+id/bottomRight"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/bottomMiddle"
+        app:layout_constraintTop_toTopOf="@+id/bottomMiddle" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="316dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayTurn" />
 
 </android.support.constraint.ConstraintLayout>
